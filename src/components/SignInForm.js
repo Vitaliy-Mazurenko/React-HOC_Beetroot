@@ -1,30 +1,30 @@
-import React, { Component } from "react";
+import React, {Component} from "react"
 
-const initState = { email: "", password: "" };
+const initState = {email: "", password: ""}
 
 class SingInForm extends Component {
   state = {
-    data: initState
-  };
+    data: initState,
+  }
 
-  handleChange = ({ target }) =>
+  handleChange = ({target}) =>
     this.setState({
-      data: { ...this.state.data, [target.name]: target.value }
-    });
+      data: {...this.state.data, [target.name]: target.value},
+    })
 
   handleSubmit = e => {
-    e.preventDefault();
-    console.log(this.state);
-    this.setState({ data: initState });
-  };
+    e.preventDefault()
+    console.log(this.state)
+    this.setState({data: initState})
+  }
 
   render() {
-    const { email, password } = this.state;
+    const {email, password} = this.state
 
     return (
       <div>
         <form onSubmit={this.handleSubmit} autoComplete="off">
-          <div className="form-group">
+          <div className="form-group mb-3">
             <input
               onChange={this.handleChange}
               value={email}
@@ -33,7 +33,7 @@ class SingInForm extends Component {
               placeholder="Email"
             />
           </div>
-          <div className="form-group">
+          <div className="form-group mb-3">
             <input
               onChange={this.handleChange}
               value={password}
@@ -45,8 +45,8 @@ class SingInForm extends Component {
           <button className="btn btn-primary">Login</button>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default SingInForm;
+export default SingInForm

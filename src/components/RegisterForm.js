@@ -1,30 +1,30 @@
-import React, { Component } from "react";
+import React, {Component} from "react"
 
-const initState = { login: "", email: "", password: "", passwordConfirm: "" };
+const initState = {login: "", email: "", password: "", passwordConfirm: ""}
 
 class RegisterForm extends Component {
   state = {
-    data: initState
-  };
+    data: initState,
+  }
 
-  handleChange = ({ target }) =>
+  handleChange = ({target}) =>
     this.setState({
-      data: { ...this.state.data, [target.name]: target.value }
-    });
+      data: {...this.state.data, [target.name]: target.value},
+    })
 
   handleSubmit = e => {
-    e.preventDefault();
-    console.log(this.state);
-    this.setState({ data: initState });
-  };
+    e.preventDefault()
+    console.log(this.state)
+    this.setState({data: initState})
+  }
 
   render() {
-    const { login, email, password, passwordConfirm } = this.state;
+    const {login, email, password, passwordConfirm} = this.state
 
     return (
       <div>
         <form onSubmit={this.handleSubmit} autoComplete="off">
-          <div className="form-group">
+          <div className="form-group mb-3">
             <input
               onChange={this.handleChange}
               value={login}
@@ -34,7 +34,7 @@ class RegisterForm extends Component {
             />
           </div>
 
-          <div className="form-group">
+          <div className="form-group mb-3">
             <input
               onChange={this.handleChange}
               value={email}
@@ -43,7 +43,7 @@ class RegisterForm extends Component {
               placeholder="Email"
             />
           </div>
-          <div className="form-group">
+          <div className="form-group mb-3">
             <input
               onChange={this.handleChange}
               value={password}
@@ -52,7 +52,7 @@ class RegisterForm extends Component {
               placeholder="Password"
             />
           </div>
-          <div className="form-group">
+          <div className="form-group mb-3">
             <input
               onChange={this.handleChange}
               value={passwordConfirm}
@@ -65,8 +65,8 @@ class RegisterForm extends Component {
           <button className="btn btn-success">Register</button>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default RegisterForm;
+export default RegisterForm
