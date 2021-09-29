@@ -10,5 +10,9 @@ function PersonList({ results }) {
     </ul>
   );
 }
+PersonList.defaultProps = {
+  results: []
+}
+
 
 export default PersonList;

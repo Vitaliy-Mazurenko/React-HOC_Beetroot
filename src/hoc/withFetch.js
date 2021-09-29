@@ -23,7 +23,7 @@ const withFetch = url => BaseComponent => {
 
           }    
         render(){
-            return <BaseComponent   {...this.state} {...this.props}/>
+               return <BaseComponent   {...this.state} {...this.props}/>
         }
 
     }
