@@ -1,33 +1,15 @@
-import React, {Component} from "react"
+import withForm from '../hoc/withForm'
 
-const initState = {email: "", password: ""}
 
-class SingInForm extends Component {
-  state = {
-    data: initState,
-  }
-
-  handleChange = ({target}) =>
-    this.setState({
-      data: {...this.state.data, [target.name]: target.value},
-    })
-
-  handleSubmit = e => {
-    e.preventDefault()
-    console.log(this.state)
-    this.setState({data: initState})
-  }
-
-  render() {
-    const {email, password} = this.state
+const  SingInForm  = ({data, handleChange, handleSubmit}) =>  {
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit} autoComplete="off">
+        <form onSubmit={handleSubmit} autoComplete="off">
           <div className="form-group mb-3">
             <input
-              onChange={this.handleChange}
-              value={email}
+              onChange={handleChange}
+              value={data.email}
               name="email"
               className="form-control"
               placeholder="Email"
@@ -35,8 +17,8 @@ class SingInForm extends Component {
           </div>
           <div className="form-group mb-3">
             <input
-              onChange={this.handleChange}
-              value={password}
+              onChange={handleChange}
+              value={data.password}
               name="password"
               className="form-control"
               placeholder="Password"
@@ -47,6 +29,6 @@ class SingInForm extends Component {
       </div>
     )
   }
-}
 
-export default SingInForm
+
+export default withForm(SingInForm)
