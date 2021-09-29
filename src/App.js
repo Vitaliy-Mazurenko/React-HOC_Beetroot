@@ -3,7 +3,7 @@ import User from "./components/User"
 
 const App = props => (
   <div className="container">
-    <User firstName="Gim" secondName="Smith" />
+    <User name="Gim" status="Active" />
   </div>
 )
 

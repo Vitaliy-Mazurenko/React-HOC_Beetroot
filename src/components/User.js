@@ -6,10 +6,22 @@ import "./user.css"
 
 const {connect} = Redux()
 
-const User = ({firstName, secondName}) => (
-  <div className="user">
-    {firstName} {secondName}
+const enhance = compose(
+  connect,
+  setDisplayName('User'),
+  setPropTypes({
+    name: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    dispatch: PropTypes.func.isRequired,
+  })
+)
+
+const User = ({name, status, dispatch}) => (
+  <div className="user"
+    onClick={() => dispatch({type: "CHANGED"})}
+  >
+    {name} {status}
   </div>
 )
 
-export default User
+export default enhance(User)
