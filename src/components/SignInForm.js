@@ -1,4 +1,4 @@
-import withForm from '../hoc/withForm'
+import withForm1 from '../hoc/withForm1'
 
 
 const  SingInForm  = ({data, handleChange, handleSubmit}) =>  {
@@ -31,4 +31,4 @@ const  SingInForm  = ({data, handleChange, handleSubmit}) =>  {
   }
 
 
-export default withForm(SingInForm)
+export default withForm1({email: "", password: ""})(SingInForm)

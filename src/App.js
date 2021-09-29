@@ -13,7 +13,7 @@ const App = () => (
     <div className="row">
       <div className="col-md-5">
         <h1>Sign in</h1>
-        <SignInForm initState = {{email: "", password: ""}}/>
+        <SignInForm />
       </div>
       <div className="offset-md-2 col-md-5">
         <h1>Register</h1>

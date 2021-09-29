@@ -1,33 +1,14 @@
-import React, {Component} from "react"
+import withForm from '../hoc/withForm'
 
-const initState = {login: "", email: "", password: "", passwordConfirm: ""}
+const  RegisterForm  = ({data, handleChange, handleSubmit}) =>  {
 
-class RegisterForm extends Component {
-  state = {
-    data: initState,
-  }
-
-  handleChange = ({target}) =>
-    this.setState({
-      data: {...this.state.data, [target.name]: target.value},
-    })
-
-  handleSubmit = e => {
-    e.preventDefault()
-    console.log(this.state)
-    this.setState({data: initState})
-  }
-
-  render() {
-    const {login, email, password, passwordConfirm} = this.state
-
-    return (
+  return (
       <div>
-        <form onSubmit={this.handleSubmit} autoComplete="off">
+        <form onSubmit={handleSubmit} autoComplete="off">
           <div className="form-group mb-3">
             <input
-              onChange={this.handleChange}
-              value={login}
+              onChange={handleChange}
+              value={data.login}
               name="login"
               className="form-control"
               placeholder="Login"
@@ -36,8 +17,8 @@ class RegisterForm extends Component {
 
           <div className="form-group mb-3">
             <input
-              onChange={this.handleChange}
-              value={email}
+              onChange={handleChange}
+              value={data.email}
               name="email"
               className="form-control"
               placeholder="Email"
@@ -45,8 +26,8 @@ class RegisterForm extends Component {
           </div>
           <div className="form-group mb-3">
             <input
-              onChange={this.handleChange}
-              value={password}
+              onChange={handleChange}
+              value={data.password}
               name="password"
               className="form-control"
               placeholder="Password"
@@ -54,8 +35,8 @@ class RegisterForm extends Component {
           </div>
           <div className="form-group mb-3">
             <input
-              onChange={this.handleChange}
-              value={passwordConfirm}
+              onChange={handleChange}
+              value={data.passwordConfirm}
               name="passwordConfirm"
               className="form-control"
               placeholder="Password confirmation"
@@ -67,6 +48,6 @@ class RegisterForm extends Component {
       </div>
     )
   }
-}
 
-export default RegisterForm
+
+export default withForm(RegisterForm)
