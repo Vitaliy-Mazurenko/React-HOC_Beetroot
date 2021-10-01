@@ -1,30 +1,23 @@
-import React from "react";
+import {lifecycle} from 'recompose'
 
-class PrintScrollToBottom extends React.Component {
+const scroll = () => window.scrollTo(0, document.documentElement.scrollHeight)
+
+const  PrintScrollToBottom = ({children}) => children
   
+const enhance = lifecycle({
   componentDidMount() {
-    this.scroll();
-  }
-
+    scroll();
+  },
   getSnapshotBeforeUpdate(){
     const {clientHeight, scrollTop, scrollHeight} = document.documentElement;
     return clientHeight + scrollTop < scrollHeight;
-  }
-
+  },
   componentDidUpdate(prevProps, prevState, isScrolledUp) {
     if(!isScrolledUp) {
-      this.scroll()
+      scroll()
     }
   }
-  
+})
 
-  scroll() {
-    window.scrollTo(0, document.documentElement.scrollHeight)
-  }
 
-  render() {
-    return this.props.children;
-  }
-}
-
-export default PrintScrollToBottom;
+export default enhance(PrintScrollToBottom);
