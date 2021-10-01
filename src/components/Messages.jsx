@@ -1,5 +1,6 @@
 import React from "react"
 import {subscribeToMessages, getInitData} from "../data"
+import PrintScrollToBottom from './PrintScrollToBottom'
 
 class Messages extends React.Component {
   state = {
@@ -19,7 +20,7 @@ class Messages extends React.Component {
     return (
       <div className="container">
         <span className="info">{messages.length}</span>
-
+      <PrintScrollToBottom>
         <ul className="grid">
           {messages.map(message => (
             <li className="box" key={message.id}>
@@ -31,6 +32,7 @@ class Messages extends React.Component {
             </li>
           ))}
         </ul>
+        </PrintScrollToBottom>
       </div>
     )
   }
